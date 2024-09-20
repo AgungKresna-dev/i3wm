@@ -4,6 +4,7 @@ font pango:FiraCode Nerd Font Bold 10
 
 floating_minimum_size 426 x 240
 floating_maximum_size 1280 x 720
+floating_modifier $mod
 default_orientation auto
 workspace_layout tabbed
 title_align center
