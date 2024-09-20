@@ -22,6 +22,8 @@ focus_on_window_activation focus
 show_marks yes
 tiling_drag off
 smart_gaps off
+gaps inner 15
+gaps outer 0
 
 # class                 border  bground text    indicator child_border
 client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
@@ -176,7 +178,7 @@ assign [class="Pcmanfm"] $ws3
 assign [class="pcmanfm-qt"] $ws3
 
 for_window [all] title_window_icon padding 3px
-for_window [workspace=1] layout default, gaps inner 15, gaps outer 0
+for_window [workspace=1] layout default
 for_window [window_type="dialog"] border none, move absolute position center
 for_window [window_type="splash"] border none, move absolute position center
 
