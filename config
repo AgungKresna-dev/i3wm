@@ -22,7 +22,7 @@ focus_on_window_activation focus
 show_marks yes
 tiling_drag off
 smart_gaps off
-gaps inner 15
+gaps inner 25
 gaps outer 0
 
 # class                 border  bground text    indicator child_border
@@ -92,7 +92,9 @@ bindsym $mod+XF86AudioMute exec --no-startup-id pamixer --toggle-mute --source '
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec --no-startup-id kitty --class kitty-ws1 --start-as maximized
+bindsym $mod+Shift+Return exec --no-startup-id kitty --class kitty-floating --start-as normal
+bindsym $mod+Ctrl+Return exec --no-startup-id kitty --class kitty-tiling --start-as maximized
 
 bindsym $mod+x kill
 bindsym $mod+Ctrl+x bar hidden_state toggle
@@ -173,7 +175,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+F5 restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-assign [class="kitty"] $ws1
+assign [class="kitty-ws1"] $ws1
 assign [class="zen-alpha"] $ws2
 assign [class="firefox"] $ws2
 assign [class="Pcmanfm"] $ws3
@@ -181,16 +183,16 @@ assign [class="pcmanfm-qt"] $ws3
 
 for_window [all] title_window_icon padding 3px
 for_window [workspace=1] layout default
-for_window [window_type="dialog"] border none, move absolute position center
+for_window [window_type="dialog"] border normal, move absolute position center
 for_window [window_type="splash"] border none, move absolute position center
 
-#for_window [floating]
-for_window [floating_from="auto"] border normal
-for_window [floating_from="user"] focus, border none
+for_window [class="kitty-tiling"] border none, resize set 25 ppt 100 ppt
+for_window [class="kitty-floating"] floating enable, border none, resize set 50 ppt 50 ppt, move absolute position center
+for_window [class="zen-alpha" instance="Toolkit" title="Picture-in-Picture"] floating enable, sticky enable, border none, resize set 25 ppt 25 ppt, move position 1415 px 785 px
 
 for_window [tiling] border none
-for_window [tiling_from="auto"] focus
-for_window [tiling_from="user"] focus
+
+no_focus [class="zen-alpha" instance="Toolkit" title="Picture-in-Picture"]
 
 mode "resize" {
         bindsym j resize shrink width 10 px or 10 ppt
