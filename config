@@ -92,7 +92,8 @@ bindsym $mod+XF86AudioMute exec --no-startup-id pamixer --toggle-mute --source '
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec --no-startup-id kitty --class kitty-ws1 --start-as maximized
+bindsym $mod+Shift+Return exec --no-startup-id kitty --class kitty-float --start-as normal
 
 bindsym $mod+x kill
 bindsym $mod+Ctrl+x bar hidden_state toggle
@@ -173,7 +174,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+F5 restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-assign [class="kitty"] $ws1
+assign [class="kitty-ws1"] $ws1
 assign [class="zen-alpha"] $ws2
 assign [class="firefox"] $ws2
 assign [class="Pcmanfm"] $ws3
@@ -183,6 +184,8 @@ for_window [all] title_window_icon padding 3px
 for_window [workspace=1] layout default
 for_window [window_type="dialog"] border none, move absolute position center
 for_window [window_type="splash"] border none, move absolute position center
+
+for_window [class="kitty-float"] floating enable, border none, resize set 50 ppt 50 ppt, move absolute position center
 
 #for_window [floating]
 for_window [floating_from="auto"] border normal
