@@ -77,7 +77,8 @@ bar {
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id feh --bg-fill $HOME/Pictures/Wallpapers/linux-arch-dark.jpg
 exec --no-startup-id nm-applet
-exec_always --no-startup-id xset b off c off dpms 300 600 900 fp default m default r on s noblank s noexpose s off
+exec_always --no-startup-id pkill -9 xidlehook; sleep 3; xidlehook --detect-sleep --not-when-audio --not-when-fullscreen --timer 300 'xset dpms force off' '' --timer 1800 'systemctl suspend' ''
+exec_always --no-startup-id xset b off c off -dpms fp default m default r on s noblank s noexpose s off
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer --increase 5
 bindsym XF86AudioLowerVolume exec --no-startup-id pamixer --decrease 5
