@@ -182,19 +182,13 @@ assign [class="pcmanfm-qt"] $ws3
 
 for_window [all] title_window_icon padding 3px
 for_window [workspace=1] layout default
-for_window [window_type="dialog"] border none, move absolute position center
+for_window [window_type="dialog"] border normal, move absolute position center
 for_window [window_type="splash"] border none, move absolute position center
 
 for_window [class="kitty-float"] floating enable, border none, resize set 50 ppt 50 ppt, move absolute position center
-for_window [class="zen-alpha" instance="Toolkit" title="Picture-in-Picture"] floating enable, border none, resize set 25 ppt 25 ppt, move position 1421 px 791 px
-
-#for_window [floating]
-for_window [floating_from="auto"] border normal
-for_window [floating_from="user"] focus, border none
+for_window [class="zen-alpha" instance="Toolkit" title="Picture-in-Picture"] floating enable, sticky enable, border none, resize set 25 ppt 25 ppt, move position 1425 px 795 px
 
 for_window [tiling] border none
-for_window [tiling_from="auto"] focus
-for_window [tiling_from="user"] focus
 
 no_focus [class="zen-alpha" instance="Toolkit" title="Picture-in-Picture"]
 
