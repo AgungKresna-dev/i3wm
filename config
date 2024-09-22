@@ -22,7 +22,7 @@ focus_on_window_activation focus
 show_marks yes
 tiling_drag off
 smart_gaps off
-gaps inner 15
+gaps inner 25
 gaps outer 0
 
 # class                 border  bground text    indicator child_border
@@ -93,7 +93,8 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 
 bindsym $mod+Return exec --no-startup-id kitty --class kitty-ws1 --start-as maximized
-bindsym $mod+Shift+Return exec --no-startup-id kitty --class kitty-float --start-as normal
+bindsym $mod+Shift+Return exec --no-startup-id kitty --class kitty-floating --start-as normal
+bindsym $mod+Ctrl+Return exec --no-startup-id kitty --class kitty-tiling --start-as maximized
 
 bindsym $mod+x kill
 bindsym $mod+Ctrl+x bar hidden_state toggle
@@ -185,8 +186,9 @@ for_window [workspace=1] layout default
 for_window [window_type="dialog"] border normal, move absolute position center
 for_window [window_type="splash"] border none, move absolute position center
 
-for_window [class="kitty-float"] floating enable, border none, resize set 50 ppt 50 ppt, move absolute position center
-for_window [class="zen-alpha" instance="Toolkit" title="Picture-in-Picture"] floating enable, sticky enable, border none, resize set 25 ppt 25 ppt, move position 1425 px 795 px
+for_window [class="kitty-tiling"] border none, resize set 25 ppt 100 ppt
+for_window [class="kitty-floating"] floating enable, border none, resize set 50 ppt 50 ppt, move absolute position center
+for_window [class="zen-alpha" instance="Toolkit" title="Picture-in-Picture"] floating enable, sticky enable, border none, resize set 25 ppt 25 ppt, move position 1415 px 785 px
 
 for_window [tiling] border none
 
