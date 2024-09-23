@@ -77,6 +77,13 @@ bar {
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id feh --bg-fill $HOME/Pictures/Wallpapers/linux-arch-dark.jpg
 exec --no-startup-id nm-applet
+exec --no-startup-id pcmanfm-qt --daemon-mode
+
+exec --no-startup-id kitty --class kitty-ws1 --start-as maximized
+exec --no-startup-id zen-browser
+exec --no-startup-id pcmanfm-qt
+exec --no-startup-id kitty --class kitty-video --start-as maximized ranger $HOME/Videos
+
 exec_always --no-startup-id pkill -9 picom; picom --config $HOME/.config/i3/config.d/picom.conf
 exec_always --no-startup-id pkill -9 xidlehook; sleep 3; xidlehook --detect-sleep --not-when-audio --not-when-fullscreen --timer 300 'xset dpms force off' '' --timer 1800 'systemctl suspend' ''
 exec_always --no-startup-id xset b off c off -dpms fp default m default r on s noblank s noexpose s off
@@ -100,7 +107,11 @@ bindsym $mod+x kill
 bindsym $mod+Ctrl+x bar hidden_state toggle
 bindsym $mod+c move absolute position center
 
+bindsym $mod+b exec --no-startup-id zen-browser
+bindsym $mod+Shift+b exec --no-startup-id zen-browser --private-window
 bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu%'"
+bindsym $mod+f exec --no-startup-id pcmanfm-qt
+bindsym $mod+v exec --no-startup-id kitty --class kitty-video --start-as maximized ranger $HOME/Videos
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -180,6 +191,7 @@ assign [class="zen-alpha"] $ws2
 assign [class="firefox"] $ws2
 assign [class="Pcmanfm"] $ws3
 assign [class="pcmanfm-qt"] $ws3
+assign [class="kitty-video"] $ws7
 
 for_window [all] title_window_icon padding 3px
 for_window [workspace=1] layout default
