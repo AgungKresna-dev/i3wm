@@ -1,3 +1,4 @@
+set $alt Mod1
 set $mod Mod4
 
 font pango:FiraCode Nerd Font Bold 10
@@ -103,6 +104,7 @@ bindsym $mod+Return exec --no-startup-id kitty --class kitty-ws1 --start-as maxi
 bindsym $mod+Shift+Return exec --no-startup-id kitty --class kitty-floating --start-as normal
 bindsym $mod+Ctrl+Return exec --no-startup-id kitty --class kitty-tiling --start-as maximized
 
+bindsym $alt+F4 kill
 bindsym $mod+x kill
 bindsym $mod+Ctrl+x bar hidden_state toggle
 bindsym $mod+c move absolute position center
@@ -143,10 +145,18 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+s sticky toggle
 
+bindsym $alt+Tab focus next
+bindsym $alt+Shift+Tab focus prev
 bindsym $mod+Tab focus next
 bindsym $mod+Shift+Tab focus prev
+
+bindsym $alt+grave workspace back_and_forth
+bindsym $alt+Shift+grave move container to workspace back_and_forth
 bindsym $mod+grave workspace back_and_forth
 bindsym $mod+Shift+grave move container to workspace back_and_forth
+
+bindsym $mod+Next workspace next
+bindsym $mod+Prior workspace prev
 
 set $ws1 "1: "
 set $ws2 "2: "
