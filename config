@@ -18,7 +18,7 @@ popup_during_fullscreen smart
 focus_wrapping yes
 force_xinerama no
 workspace_auto_back_and_forth no
-force_display_urgency_hint 300 ms
+force_display_urgency_hint 0 ms
 focus_on_window_activation focus
 show_marks yes
 tiling_drag off
@@ -210,6 +210,11 @@ for_window [window_type="splash"] border none, move absolute position center
 
 for_window [class="kitty-tiling"] border none, resize set 25 ppt 100 ppt
 for_window [class="kitty-floating"] floating enable, border none, resize set 50 ppt 50 ppt, move absolute position center
+for_window [class="Xdm-app" instance="xdm-app" title="Xtreme Download Manager"] border none, resize set 50 ppt 50 ppt, move absolute position center
+for_window [class="Xdm-app" instance="xdm-app" title="Settings"] floating enable, resize set 50 ppt 50 ppt, move absolute position center
+for_window [class="Xdm-app" instance="xdm-app" title="New Download"] floating enable, resize set 50 ppt 25 ppt, move absolute position center
+for_window [class="Xdm-app" instance="xdm-app" title="^[0-9]%*"] floating enable, resize set 25 ppt 15 ppt, move position 25 px 815 px
+for_window [class="zen-alpha" instance="Places" title="Library"] floating enable, resize set 50 ppt 50 ppt, move absolute position center
 for_window [class="zen-alpha" instance="Toolkit" title="Picture-in-Picture"] floating enable, sticky enable, border none, resize set 25 ppt 25 ppt, move position 1415 px 785 px
 
 for_window [tiling] border none
