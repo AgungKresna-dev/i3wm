@@ -79,6 +79,9 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id feh --bg-fill $HOME/Pictures/Wallpapers/linux-arch-dark.jpg
 exec --no-startup-id nm-applet
 exec --no-startup-id pcmanfm-qt --daemon-mode
+exec --no-startup-id poweralertd
+exec --no-startup-id xidlehook --detect-sleep --not-when-audio --not-when-fullscreen --timer 300 "xset dpms force off" "xset dpms force on" --timer 1800 "systemctl suspend" ""
+exec_always --no-startup-id pkill -9 dunst; dunst
 exec_always --no-startup-id pkill -9 picom; picom --config $HOME/.config/i3/config.d/picom.conf
 exec_always --no-startup-id xset b off c off -dpms fp default m default r on s noblank s noexpose s off
 
